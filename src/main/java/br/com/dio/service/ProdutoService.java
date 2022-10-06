@@ -17,9 +17,10 @@ public class ProdutoService {
 	private ProdutoRepository repository;
 
 	public Produto save(Produto produto) throws Exception {
-		if (produto.getNome() == null || produto.getPreco() == null)
+		if (produto.getNome() == null) 
 			throw new ProductNullException();
-		if (produto.getPreco() < 0)
+
+		if (produto.getPreco() == null)
 			throw new ProductPriceException();
 		return repository.save(produto);
 	}
