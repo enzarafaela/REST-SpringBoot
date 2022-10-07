@@ -26,16 +26,16 @@ public class Initializer {
 	public void criaUsuariosEPermissoes() {
 		Role roleAdmin = new Role();
 
-		roleAdmin.setName("USER");
+		roleAdmin.setName("ADMIN");
 
 		roleService.save(roleAdmin);
 
 		User user = new User();
 		user.setAtivo(true);
 		user.setEmail("teste@teste.com");
-		user.setNome("Kaique Arantes");
-		user.setSenha(new BCryptPasswordEncoder().encode("123456"));
-		user.setUsername("karantes");
+		user.setNome("enza");
+		user.setSenha(new BCryptPasswordEncoder().encode("123"));
+		user.setUsername("enza");
 		user.setRoles(Arrays.asList(roleAdmin));
 
 		userService.save(user);

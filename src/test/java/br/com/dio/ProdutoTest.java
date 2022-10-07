@@ -1,5 +1,7 @@
 package br.com.dio;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -17,11 +19,14 @@ public class ProdutoTest {
 	private ProdutoService produtoService;
 
 	@Test
-	public void vericicaValorNegativoNoProduto() {
+	public void vericicaValorNegativoNoProduto() throws Exception {
 		Produto produto = new Produto();
 
 		produto.setNome("Teste");
-		produto.setPreco(-10.0);
+		produto.setPreco(10.0);
+		
+		produtoService.save(produto);
+		//assertNull(produto.getId());
 
 		assertThrows(ProductPriceException.class, () -> produtoService.save(produto));
 
